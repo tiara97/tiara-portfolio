@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { projects } from "@/lib/projects-data";
 import { notFound } from "next/navigation";
 import GifPlayer from "@/components/gif-player";
+import YouTubePlayer from "@/components/youtube-player";
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug);
@@ -45,8 +46,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               ))}
             </div>
           </div>
-
-          <GifPlayer gifSrc={project.gifImage} staticSrc={project.image} alt={project.title} className="aspect-video" />
+          <YouTubePlayer
+            videoId={project.videoId}
+            title={project.title}
+            className="aspect-video w-full"
+          />
         </div>
       </div>
 
@@ -75,7 +79,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   <li className="flex items-center" key={i}>
                     <Sparkles className="h-4 w-4 text-primary mr-2" />
                     <span>{v}</span>
-                    </li>
+                  </li>
                 ))}
               </div>
             </section>

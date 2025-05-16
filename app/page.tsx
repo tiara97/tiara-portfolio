@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,9 +20,23 @@ import SkillsCloud from "@/components/skills-cloud";
 import ContactForm from "@/components/contact-form";
 import constants from "@/constants/constant.json";
 import { projects } from "@/lib/projects-data";
+import { useEffect, useState } from "react";
+import BackToTop from "@/components/back-to-top";
+import SplineImg from "@/components/spline-img";
 
 export default function Home() {
   const enumData = constants;
+  const [show, setShow] = useState(false);
+  const [projectList, setProjectList] = useState(projects);
+
+  useEffect(() => {
+    if (show) setProjectList(projects);
+    else {
+      const slicedProjects = projects.slice(0, 3);
+      setProjectList(slicedProjects);
+    }
+  }, [show]);
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-background to-background/80 overflow-hidden">
       <InteractiveCursor />
@@ -101,16 +117,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden border-4 border-background shadow-xl relative z-10 bg-muted">
-              <img
-                src="/placeholder.svg?height=600&width=600"
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 w-2/3 aspect-square rounded-2xl border-4 border-background shadow-xl bg-purple-100 dark:bg-purple-950/30 -z-10"></div>
-            <div className="absolute -top-6 -left-6 w-1/2 aspect-square rounded-2xl border-4 border-background shadow-xl bg-blue-100 dark:bg-blue-950/30 -z-10"></div>
+          <div className="aspect-square rounded-2xl overflow-hidden border-4 border-background shadow-xl relative z-10 bg-muted">
+            <SplineImg />
           </div>
         </div>
       </section>
@@ -129,12 +137,12 @@ export default function Home() {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A selection of my recent work showcasing my skills in full stack
-            development, UI/UX design, and creative problem-solving.
+            development, and creative problem-solving.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((v) => (
+          {projectList.map((v: any) => (
             <ProjectCard
               title={v.title}
               description={v.shortDescription}
@@ -146,8 +154,13 @@ export default function Home() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="rounded-full">
-            View All Projects
+          <Button
+            variant="outline"
+            size="lg"
+            className="rounded-full"
+            onClick={() => setShow(!show)}
+          >
+            {!show ? "View All Projects" : "Show Less"}
             <Layers className="ml-2 h-4 w-4" />
           </Button>
         </div>
@@ -221,10 +234,6 @@ export default function Home() {
                   <li className="flex items-center">
                     <Zap className="h-4 w-4 text-primary mr-2" />
                     <span>REST API design</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Zap className="h-4 w-4 text-primary mr-2" />
-                    <span>Firebase, Supabase</span>
                   </li>
                 </ul>
               </CardContent>
@@ -436,9 +445,7 @@ export default function Home() {
           </p>
 
           <div className="mt-4 md:mt-0">
-            <Button variant="ghost" size="sm">
-              Back to Top
-            </Button>
+            <BackToTop />
           </div>
         </div>
       </footer>
