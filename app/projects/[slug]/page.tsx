@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { projects } from "@/lib/projects-data";
 import { notFound } from "next/navigation";
-import GifPlayer from "@/components/gif-player";
 import YouTubePlayer from "@/components/youtube-player";
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {

@@ -37,6 +37,11 @@ export default function Home() {
     }
   }, [show]);
 
+  const scrollToId = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-background to-background/80 overflow-hidden">
       <InteractiveCursor />
@@ -68,11 +73,20 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Button size="lg" className="rounded-full group">
+            <Button
+              size="lg"
+              className="rounded-full group"
+              onClick={() => scrollToId("projects")}
+            >
               View My Work
               <Rocket className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full">
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full"
+              onClick={() => scrollToId("contact")}
+            >
               Get In Touch
               <Send className="ml-2 h-4 w-4" />
             </Button>
@@ -118,7 +132,7 @@ export default function Home() {
           </div>
 
           <div className="aspect-square rounded-2xl overflow-hidden border-4 border-background shadow-xl relative z-10 bg-muted">
-            <SplineImg />
+            {/* <SplineImg /> */}
           </div>
         </div>
       </section>
