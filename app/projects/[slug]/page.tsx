@@ -8,6 +8,12 @@ import { projects } from "@/lib/projects-data";
 import { notFound } from "next/navigation";
 import YouTubePlayer from "@/components/youtube-player";
 
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
 export default async function ProjectPage({
   params,
 }: {

@@ -132,7 +132,7 @@ export default function Home() {
           </div>
 
           <div className="aspect-square rounded-2xl overflow-hidden border-4 border-background shadow-xl relative z-10 bg-muted">
-            {/* <SplineImg /> */}
+            <SplineImg />
           </div>
         </div>
       </section>
