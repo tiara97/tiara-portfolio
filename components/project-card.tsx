@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
+import { basePath } from "@/lib/config";
 
 interface ProjectCardProps {
   title: string
@@ -27,7 +28,7 @@ export default function ProjectCard({ title, description, image, tags, link }: P
         <div className="relative overflow-hidden aspect-video">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110"
-            style={{ backgroundImage: `url(${image})` }}
+            style={{ backgroundImage: `url(${basePath}${image})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/0" />
         </div>
