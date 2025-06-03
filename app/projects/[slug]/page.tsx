@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { projects } from "@/lib/projects-data";
 import { notFound } from "next/navigation";
 import YouTubePlayer from "@/components/youtube-player";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -103,10 +104,12 @@ export default async function ProjectPage({
                       key={index}
                       className="rounded-lg overflow-hidden border border-muted"
                     >
-                      <img
-                        src={screenshot || "/placeholder.svg"}
+                      <Image
+                        src={`${screenshot}` || "/placeholder.svg"}
                         alt={`Screenshot ${index + 1}`}
-                        className="w-full h-auto"
+                        width={800}
+                        height={500}
+                        unoptimized
                       />
                     </div>
                   ))}
