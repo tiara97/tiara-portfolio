@@ -19,7 +19,8 @@ export const projects = [
       "/cirrust-wf/wf-log.png?",
       "/cirrust-wf/wf-report.png?",
       "/cirrust-wf/wf-newcase.png?",
-      "/cirrust-wf/wf-log.png?",
+      "/cirrust-wf/wf-case.png?",
+      "/cirrust-wf/wf-detail-case.png?",
     ],
     gifImage: "/placeholder.svg?height=400&width=600",
     tags: ["Next.js", "Tailwind CSS"],
@@ -35,7 +36,6 @@ export const projects = [
     client: "Various companies such as banking and insurance companies",
     liveUrl: "",
     githubUrl: "",
-    videoId: "dQw4w9WgXcQ",
   },
   {
     id: 2,
@@ -53,9 +53,7 @@ export const projects = [
       "Responsive display",
     ],
     image: "/cirrust-dms/dms-login.png?height=400&width=600",
-    screenshots: [
-      "/uw-worksheet/uw-start.png?",
-    ],
+    screenshots: ["/uw-worksheet/uw-start.png?"],
     gifImage: "/placeholder.svg?height=400&width=600",
     tags: ["Next.js", "Tailwind CSS"],
     technologies: ["React", "Next.js", "Ant Design", "Tailwind CSS"],
@@ -64,7 +62,6 @@ export const projects = [
     client: "Various companies such as banking and insurance companies",
     liveUrl: "",
     githubUrl: "",
-    videoId: "dQw4w9WgXcQ",
   },
   {
     id: 3,
@@ -76,7 +73,10 @@ export const projects = [
       "Zurich Agent CMS is a comprehensive platform designed to manage both new and existing insurance agents efficiently. The system streamlines key processes such as agent onboarding, data management, scheduling e-learning sessions, managing calendar events, generating agreement documents, and organizing incentive programs or contests.",
     problem:
       "The app simplifies agent management by streamlining onboarding, scheduling, document creation, and event planning. It reduces manual work, improves coordination, and boosts agent engagement and productivity.",
-    highlight: [],
+    highlight: [
+      "Dynamic form",
+      "Integrated with mobile app",
+    ],
     image: "/zurich/zurich-login.png?height=400&width=600",
     screenshots: [
       "/zurich/zurich-dashboard.png?",
@@ -140,7 +140,8 @@ export const projects = [
       "A landing page to modify insurance details with a real-time premium calculations",
     description:
       "UW Worksheet allows insurance agents to modify consumer's insurance details that directly impact the premium, with real-time calculations reflecting changes in the data for accurate and immediate premium assessments",
-    problem: "This solution addresses the inefficiencies agents face when updating customer insurance data, reduces the risk of errors, and speeds up data processing—leading to faster service, improved accuracy, and a better overall customer experience.",
+    problem:
+      "This solution addresses the inefficiencies agents face when updating customer insurance data, reduces the risk of errors, and speeds up data processing—leading to faster service, improved accuracy, and a better overall customer experience.",
     highlight: [
       "Integrated with third party app",
       "Real-time calculation",

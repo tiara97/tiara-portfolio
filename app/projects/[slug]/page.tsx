@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { projects } from "@/lib/projects-data";
 import { notFound } from "next/navigation";
 import YouTubePlayer from "@/components/youtube-player";
-import Image from "next/image";
+import { basePath } from "@/lib/config";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -57,11 +57,13 @@ export default async function ProjectPage({
               ))}
             </div>
           </div>
-          <YouTubePlayer
-            videoId={project.videoId}
-            title={project.title}
-            className="aspect-video w-full"
-          />
+          {project.videoId && (
+            <YouTubePlayer
+              videoId={project.videoId}
+              title={project.title}
+              className="aspect-video w-full"
+            />
+          )}
         </div>
       </div>
 
@@ -104,12 +106,10 @@ export default async function ProjectPage({
                       key={index}
                       className="rounded-lg overflow-hidden border border-muted"
                     >
-                      <Image
-                        src={`${screenshot}` || "/placeholder.svg"}
+                      <img
+                        src={`${basePath}${screenshot}` || "/placeholder.svg"}
                         alt={`Screenshot ${index + 1}`}
-                        width={800}
-                        height={500}
-                        unoptimized
+                        className="w-full h-auto"
                       />
                     </div>
                   ))}

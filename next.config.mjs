@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
+
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
-  output: "export",  // <=== enables static exports
+  basePath: isProd ? "/tiara-portfolio" : "", // Replace with your repo name
+  assetPrefix: isProd ? "/tiara-portfolio" : "",
+  output: "export", // <=== enables static exports
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -10,6 +15,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
