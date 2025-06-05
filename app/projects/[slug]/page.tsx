@@ -8,6 +8,7 @@ import { projects } from "@/lib/projects-data";
 import { notFound } from "next/navigation";
 import YouTubePlayer from "@/components/youtube-player";
 import { basePath } from "@/lib/config";
+import InteractiveCursor from "@/components/interactive-cursor";
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -28,6 +29,8 @@ export default async function ProjectPage({
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-background to-background/80">
+      <InteractiveCursor />
+
       {/* Header with back button */}
       <div className="max-w-5xl mx-auto pt-8 px-4 md:px-6">
         <Link href="/#projects">
