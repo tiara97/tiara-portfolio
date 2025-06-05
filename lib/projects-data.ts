@@ -53,7 +53,12 @@ export const projects = [
       "Responsive display",
     ],
     image: "/cirrust-dms/dms-login.png?height=400&width=600",
-    screenshots: ["/uw-worksheet/uw-start.png?"],
+    screenshots: [
+      "/cirrust-dms/dms-dashboard.png?",
+      "/cirrust-dms/dms-log.png?",
+      "/cirrust-dms/dms-group-assign.png?",
+      "/cirrust-dms/dms-permission.png?",
+    ],
     gifImage: "/placeholder.svg?height=400&width=600",
     tags: ["Next.js", "Tailwind CSS"],
     technologies: ["React", "Next.js", "Ant Design", "Tailwind CSS"],
