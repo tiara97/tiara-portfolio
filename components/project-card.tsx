@@ -33,7 +33,7 @@ export default function ProjectCard({
         <div className="relative overflow-hidden aspect-video">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-110"
-            style={{ backgroundImage: `url(${basePath}${image})` }}
+            style={{ backgroundImage: `url(${image})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/0" />
         </div>
